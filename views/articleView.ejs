@@ -1,0 +1,28 @@
+<head>
+<title>Article Detail</title>
+<link rel="stylesheet" href="/css/articleDetail.css" />
+</head>
+
+
+<body>
+    <p>Name</p>
+    <span id="name"><%=singleArticle.name%></span>
+    <p>Type</p>
+    <span id="type"><%=singleArticle.type%></span>
+    <p>Content</p>
+    <p id="content"><%=singleArticle.content%></p>
+ 
+    <button id="back">Back</button>
+
+    <script src="/js/jquery-3.5.1.min.js"></script>
+
+    <script>
+        
+$('#back').click(function () {
+  window.location.replace('/')
+    });
+
+
+    </script>
+
+</body>

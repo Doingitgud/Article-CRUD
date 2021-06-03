@@ -1,0 +1,61 @@
+<head>
+    <title>Edit Article</title>
+      <link rel="stylesheet" href="/css/newArticle.css" />
+    </head>
+    <body>
+        <form>
+            <input id="name" type="text" value="<%= singleArticle.name %>" />
+            <input id="type" type="text" value="<%= singleArticle.type %>" />
+            <input id="content" type="text" value="<%= singleArticle.content %>" />
+          </form>
+        
+          <button id="submitEdit">Submit</button>
+          <button id="backEdit">Back</button>
+
+          <%var singleArticleInEJS=JSON.stringify(singleArticle)%>
+        
+          <script src="/js/jquery-3.5.1.min.js"></script>
+<script>
+
+try {
+            singleArticle = JSON.parse(`<%-singleArticleInEJS%>`);
+          }
+          catch (err) {
+            alert('Error in parsing')
+          }
+
+
+$('#submitEdit').click(function() {
+  let document = {
+        id: singleArticle._id,
+        type: $('#type').val(),
+        name: $('#name').val(),
+        content: $('#content').val()
+      };
+      $.ajax({
+        type: 'POST',
+        url: '/editArticle',
+        data: document,
+        success: response => {
+          console.log(response);
+        },
+        error: response => {
+          console.log(response);
+        }
+
+      });
+
+      alert('Edited article of '+document.name+' is modified in the database')
+
+});
+
+
+$('#backEdit').click(function () {
+  window.location.replace('/')
+    });
+
+  </script>
+
+
+
+</body>          

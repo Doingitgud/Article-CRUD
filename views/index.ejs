@@ -1,0 +1,119 @@
+<head>
+
+    <title>Article View</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+
+<body>
+
+  <button id="create">Create</button>
+
+ <div class="article-items">
+    <%for(var i=0;i<articleData.length;i++) {%>
+
+      <div id="divArticleItem">
+        
+        <span id="articleName"> <%= articleData[i].name %></span>
+        <button class="edit">Edit</button>
+        <button class="view">View</button>
+        <button class="remove">REMOVE</button>
+       
+      </div>
+
+      <% } %>
+
+
+
+        <%if(articleData.length==0) {%>
+          <p id="articleStatus">No article present. </p>
+          <% } %>
+    
+
+  </div>
+
+  <%var articleDataInEJS=JSON.stringify(articleData)%>
+
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script>
+     articleArray = [];
+   try {
+            articleArray = JSON.parse(`<%-articleDataInEJS%>`);
+          }
+          catch (err) {
+            alert('Error in parsing')
+          }
+
+
+          $('.remove').click(function (event) {
+            let x = 0;
+            let buttonClicked = $(this).parent().children();
+            let removeItemName = buttonClicked[0].innerText;
+            $(this).parent().remove();
+            for (let i = 0; i < articleArray.length; i++) {
+              if (articleArray[i].name == removeItemName) {
+                x = i;
+              }
+            }
+            
+            $.ajax({
+              type: 'POST',
+              url: '/article/items',
+              data: {id:articleArray[x]._id},
+              success: response => {
+                console.log(response);
+              },
+              error: response => {
+                console.log(response);
+              }
+
+            });
+           
+          });
+
+
+
+          $('.view').click(function (event) {
+        
+          let g = 0;
+            let buttonClicked = $(this).parent().children();
+            let viewItemName = buttonClicked[0].innerText;
+            for (let i = 0; i < articleArray.length; i++) {
+              if (articleArray[i].name == viewItemName) {
+                g = i;
+              }
+            }
+
+             window.location.replace('/articleview/'+articleArray[g]._id)
+
+
+          });
+
+
+          $('.edit').click(function (event) {
+        
+        let h = 0;
+          let buttonClicked = $(this).parent().children();
+          let editItemName = buttonClicked[0].innerText;
+          for (let i = 0; i < articleArray.length; i++) {
+            if (articleArray[i].name == editItemName) {
+              h = i;
+            }
+          }
+
+           window.location.replace('/editArticle/'+articleArray[h]._id)
+
+
+        });
+
+  $('#create').click(function () {
+  window.location.replace('/newArticle')
+    });
+
+
+
+
+  </script>
+
+  </body>
+  

@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.article-items{
+    background: aquamarine;
+    position: fixed;
+    max-height: 35rem;
+    overflow-y: auto;
+    top:8.5rem;
+    width: 50%;
+    left: 30rem;
+}
+#divArticleItem{
+    position: relative;
+    border: 5px solid green;
+    padding: 16px 20px;
+}
+button{
+    border: 1px solid green;
+    padding: 4px 5px;
+    left: 20rem;
+    }
+.edit, .view, .remove{
+    position: absolute;
+}
+.edit{
+    padding: 5px 14px;
+    left:30rem;
+}
+.view{
+    padding: 5px 10px;
+    left:35rem;
+}
+.remove{
+    left:40rem;
+}
+#create{
+    position: absolute;
+    border: 1px solid green;
+    top: 4rem;
+    left: 48rem;
+    background: none;
+    padding: 8px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.8s;
+ }

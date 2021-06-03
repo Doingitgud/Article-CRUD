@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+   
+}
+form{
+    position: absolute;
+    top: 12rem;
+    left: 40rem;
+    margin: 50px auto;
+    width: 320px;
+}
+#name, #type, #content{
+    display: block;
+    width: 100%;
+    border: 2px solid green;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 15px;
+   transition: 3s;
+}
+#name:focus, #type:focus, #content:focus {
+    border-color: dodgerblue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
+}
+#content{
+  
+    width:100%;
+}
+button{
+    position: absolute;
+    border: 1px solid green;
+    background: none;
+    padding: 8px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.8s;
+ }
+ button:hover{
+     color: green;
+ }
+ #submit{
+     position: relative;
+     text-align: center;
+     margin-top: 50%;
+     bottom: 7.75rem;
+     left:35rem;
+ }
+ #cancel{
+    position: absolute;
+    text-align: center;
+    bottom: 4.75rem;
+    left: 44rem;
+}
+#submitEdit{
+    position: relative;
+    text-align: center;
+    margin-top: 50%;
+    bottom: 7.75rem;
+    left:40rem;
+}
+#backEdit{
+    position: absolute;
+    text-align: center;
+    bottom: 4.75rem;
+    left: 53.5rem;
+    padding: 8px 18px;
+}
+#backNew{
+    position: absolute;
+    text-align: center;
+    bottom: 4.75rem;
+    padding: 8px 18px;
+    left: 52rem;
+}

@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+   
+}
+p{
+   font-size: larger;
+}
+#name, #type, #content{
+    display: block;
+    width: 100%;
+    border: 2px solid green;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 15px;
+   transition: 3s;
+}
+#name{
+    background: orange;
+}
+#type{
+    background: green;
+}
+#content{
+    background: mediumturquoise;
+}
+#back{
+    position: absolute;
+    border: 1px solid green;
+    bottom: 4rem;
+    left: 48rem;
+    background: none;
+    padding: 8px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.8s;
+ }
